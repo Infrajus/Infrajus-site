@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Infrajus - Perícia Criminal</title>
+<title>Infrajus</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;600&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
 
@@ -15,76 +15,99 @@
 }
 
 body {
-  background: #000;
+  height: 100vh;
+  width: 100vw;
   overflow: hidden;
   font-family: 'Inter', sans-serif;
+  background: radial-gradient(circle at center,
+    #1a1f3a 0%,
+    #0b1a2a 45%,
+    #070d1a 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #d8dee6;
 }
 
-/* FUNDO */
-.hero {
-  position: relative;
-  width: 100vw;
-  height: 100vh;
-  background: url("783eb7e0-7719-11f1-9854-bd9a3755262a (1).png") center/cover no-repeat;
-  filter: contrast(1.05) brightness(0.9);
-}
-
-/* OVERLAY FORENSE */
-.overlay {
+/* leve textura de profundidade */
+body::before {
+  content: "";
   position: absolute;
   inset: 0;
-  background: linear-gradient(
-    180deg,
-    rgba(11,26,42,0.65),
-    rgba(11,26,42,0.85)
-  );
+  background: radial-gradient(circle at center, transparent 40%, rgba(0,0,0,0.5));
+  pointer-events: none;
 }
 
-/* SCANNER ANIMATION */
-.scanner {
-  position: absolute;
-  width: 100%;
-  height: 3px;
-  background: rgba(203,179,138,0.35);
-  top: 0;
-  animation: scan 4s linear infinite;
-  box-shadow: 0 0 20px rgba(203,179,138,0.2);
-}
-
-@keyframes scan {
-  0% { top: 0; opacity: 0; }
-  10% { opacity: 1; }
-  50% { opacity: 0.6; }
-  100% { top: 100%; opacity: 0; }
-}
-
-/* CONTEÚDO CENTRAL */
-.content {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+/* CONTAINER */
+.container {
   text-align: center;
-  color: #d8dee6;
   z-index: 2;
 }
 
+/* NOME PRINCIPAL */
 h1 {
   font-family: 'Oswald', sans-serif;
-  font-size: 72px;
-  letter-spacing: 10px;
-  color: #e2e6ea;
-  text-shadow: 0 0 25px rgba(0,0,0,0.6);
+  font-size: 84px;
+  letter-spacing: 12px;
+  color: #e6ebf0;
+  text-transform: uppercase;
+  text-shadow: 
+    0 0 25px rgba(120,140,255,0.15),
+    0 0 60px rgba(203,179,138,0.08);
 }
 
+/* SUBTÍTULO */
 p {
   margin-top: 10px;
-  font-size: 16px;
+  font-size: 18px;
+  letter-spacing: 2px;
   color: #cfd6dd;
-  letter-spacing: 1px;
+  opacity: 0.9;
+}
+
+/* LINHA FORENSE (DETALHE ELEGANTE) */
+.line {
+  width: 120px;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, #cbb38a, transparent);
+  margin: 25px auto;
+  opacity: 0.7;
 }
 
 /* BOTÃO */
 button {
   margin-top: 30px;
-  padding:
+  padding: 12px 26px;
+  border: 1px solid #cbb38a;
+  background: transparent;
+  color: #d8dee6;
+  font-size: 14px;
+  letter-spacing: 2px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+button:hover {
+  background: rgba(203,179,138,0.15);
+  transform: translateY(-2px);
+}
+</style>
+
+</head>
+
+<body>
+
+<div class="container">
+  <h1>INFRAJUS</h1>
+
+  <div class="line"></div>
+
+  <p>Inteligência Pericial</p>
+
+  <button onclick="alert('Sistema em desenvolvimento')">
+    ACESSAR SISTEMA
+  </button>
+</div>
+
+</body>
+</html>
