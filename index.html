@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+  <!DOCTYPE html>
 <html lang="pt-br">
 <head>
 <meta charset="UTF-8">
@@ -14,57 +14,65 @@
   box-sizing: border-box;
 }
 
-body {
-  height: 100vh;
-  width: 100vw;
+html, body {
+  height: 100%;
+  width: 100%;
   overflow: hidden;
-  font-family: 'Inter', sans-serif;
+}
+
+/* FUNDO INSTITUCIONAL */
+body {
   display: flex;
   align-items: center;
   justify-content: center;
+  font-family: 'Inter', sans-serif;
 
   background: radial-gradient(circle at center,
     #1b1f3f 0%,
     #0b1a2a 55%,
     #070d1a 100%);
+  position: relative;
 }
 
-/* leve camada de profundidade */
+/* camada de profundidade */
 body::before {
   content: "";
   position: absolute;
   inset: 0;
-  background: radial-gradient(circle at center, transparent 35%, rgba(0,0,0,0.55));
-  pointer-events: none;
+  background: radial-gradient(circle at center,
+    transparent 30%,
+    rgba(0,0,0,0.55));
+  z-index: 1;
 }
 
-/* CONTAINER CENTRAL */
+/* CONTEÚDO */
 .container {
   text-align: center;
   z-index: 2;
-  padding: 20px;
+  position: relative;
 }
 
-/* NOME PRINCIPAL */
+/* NOME INFRAJUS */
 h1 {
   font-family: 'Space Grotesk', sans-serif;
   font-size: 92px;
   letter-spacing: 14px;
   text-transform: uppercase;
   color: #eef2f6;
-  position: relative;
 
   text-shadow:
-    0 0 25px rgba(120,140,255,0.18),
-    0 0 60px rgba(203,179,138,0.10);
+    0 0 20px rgba(120,140,255,0.18),
+    0 0 55px rgba(203,179,138,0.10);
+
+  position: relative;
 }
 
-/* efeito de brilho suave passando */
+/* brilho sutil animado */
 h1::after {
   content: "";
   position: absolute;
   top: 0;
-  left: -100%;
+  left: -120%;
   width: 100%;
   height: 100%;
   background: linear-gradient(120deg,
@@ -89,9 +97,49 @@ p {
   opacity: 0.95;
 }
 
-/* LINHA DE DETALHE */
+/* LINHA */
 .line {
   width: 140px;
   height: 1px;
   margin: 28px auto;
-  background: linear-gradient(90deg, transparent, #cbb38a, transparent
+  background: linear-gradient(90deg, transparent, #cbb38a, transparent);
+  opacity: 0.8;
+}
+
+/* BOTÃO */
+button {
+  margin-top: 35px;
+  padding: 13px 28px;
+  border: 1px solid #cbb38a;
+  background: transparent;
+  color: #e6ebf0;
+  font-size: 14px;
+  letter-spacing: 2px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+button:hover {
+  background: rgba(203,179,138,0.18);
+  transform: translateY(-2px);
+}
+</style>
+
+</head>
+
+<body>
+
+<div class="container">
+  <h1>INFRAJUS</h1>
+
+  <div class="line"></div>
+
+  <p>Inteligência Pericial</p>
+
+  <button onclick="alert('Bem-vindo à Infrajus. Conteúdo institucional em desenvolvimento.')">
+    Conhecer o Instituto
+  </button>
+</div>
+
+</body>
+</html>
