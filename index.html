@@ -3,9 +3,9 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Infrajus</title>
+<title>Infrajus - Inteligência Pericial</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;600&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;600&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
 
 <style>
 * {
@@ -19,95 +19,79 @@ body {
   width: 100vw;
   overflow: hidden;
   font-family: 'Inter', sans-serif;
-  background: radial-gradient(circle at center,
-    #1a1f3a 0%,
-    #0b1a2a 45%,
-    #070d1a 100%);
   display: flex;
   align-items: center;
   justify-content: center;
-  color: #d8dee6;
+
+  background: radial-gradient(circle at center,
+    #1b1f3f 0%,
+    #0b1a2a 55%,
+    #070d1a 100%);
 }
 
-/* leve textura de profundidade */
+/* leve camada de profundidade */
 body::before {
   content: "";
   position: absolute;
   inset: 0;
-  background: radial-gradient(circle at center, transparent 40%, rgba(0,0,0,0.5));
+  background: radial-gradient(circle at center, transparent 35%, rgba(0,0,0,0.55));
   pointer-events: none;
 }
 
-/* CONTAINER */
+/* CONTAINER CENTRAL */
 .container {
   text-align: center;
   z-index: 2;
+  padding: 20px;
 }
 
 /* NOME PRINCIPAL */
 h1 {
-  font-family: 'Oswald', sans-serif;
-  font-size: 84px;
-  letter-spacing: 12px;
-  color: #e6ebf0;
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 92px;
+  letter-spacing: 14px;
   text-transform: uppercase;
-  text-shadow: 
-    0 0 25px rgba(120,140,255,0.15),
-    0 0 60px rgba(203,179,138,0.08);
+  color: #eef2f6;
+  position: relative;
+
+  text-shadow:
+    0 0 25px rgba(120,140,255,0.18),
+    0 0 60px rgba(203,179,138,0.10);
+}
+
+/* efeito de brilho suave passando */
+h1::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(120deg,
+    transparent 0%,
+    rgba(255,255,255,0.10) 50%,
+    transparent 100%);
+  animation: shine 6s infinite;
+}
+
+@keyframes shine {
+  0% { left: -120%; }
+  50% { left: 120%; }
+  100% { left: 120%; }
 }
 
 /* SUBTÍTULO */
 p {
-  margin-top: 10px;
-  font-size: 18px;
-  letter-spacing: 2px;
+  margin-top: 12px;
+  font-size: 20px;
+  letter-spacing: 3px;
   color: #cfd6dd;
-  opacity: 0.9;
+  opacity: 0.95;
 }
 
-/* LINHA FORENSE (DETALHE ELEGANTE) */
+/* LINHA DE DETALHE */
 .line {
-  width: 120px;
+  width: 140px;
   height: 1px;
-  background: linear-gradient(90deg, transparent, #cbb38a, transparent);
-  margin: 25px auto;
-  opacity: 0.7;
-}
-
-/* BOTÃO */
-button {
-  margin-top: 30px;
-  padding: 12px 26px;
-  border: 1px solid #cbb38a;
-  background: transparent;
-  color: #d8dee6;
-  font-size: 14px;
-  letter-spacing: 2px;
-  cursor: pointer;
-  transition: 0.3s;
-}
-
-button:hover {
-  background: rgba(203,179,138,0.15);
-  transform: translateY(-2px);
-}
-</style>
-
-</head>
-
-<body>
-
-<div class="container">
-  <h1>INFRAJUS</h1>
-
-  <div class="line"></div>
-
-  <p>Inteligência Pericial</p>
-
-  <button onclick="alert('Sistema em desenvolvimento')">
-    ACESSAR SISTEMA
-  </button>
-</div>
-
-</body>
-</html>
+  margin: 28px auto;
+  background: linear-gradient(90deg, transparent, #cbb38a, transparent
